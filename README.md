@@ -4,3 +4,5 @@ Notify App for COVID Vaccine for 18-44 Aged People: Whenever Vaccine is availabl
 No need to manually search on Cowin or Aarogya Setu for the availablity of Vaccine for 18+ users.
 
 This app will automatically run in background and give you the Notification whenever its available nearby your area.
+
+Only for Android Users
