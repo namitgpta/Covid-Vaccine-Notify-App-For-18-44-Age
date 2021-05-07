@@ -28,10 +28,9 @@ public class FutureBroadcast extends BroadcastReceiver {
     public int days_to_fetch = 15;
     public int days_fetched = 0;
     private String pincode_here;
+    public String logTAG = "Vaccine";
 
     private Context context_global;
-
-    //private boolean while_loop = true;
 
     public NotificationManagerCompat notificationManager;
     public NotificationCompat.Builder builder;
@@ -44,7 +43,6 @@ public class FutureBroadcast extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         //this will be executed at selected interval
         context_global = context;
-        //while_loop = true;
         json_number = 0;
 
         SharedPreferences prefs = context.getSharedPreferences("com.namit.vaccine18notifier", Context.MODE_PRIVATE);
@@ -65,9 +63,7 @@ public class FutureBroadcast extends BroadcastReceiver {
         notificationManager = NotificationManagerCompat.from(context);
 
         availableFor_18_OrNot();
-//        while (while_loop){
-//
-//        }
+
 
         //notificationManager.notify(200, builder.build());
     }
@@ -88,7 +84,7 @@ public class FutureBroadcast extends BroadcastReceiver {
 
             int finalI = i;
 
-            System.out.println(url);
+            Log.d(logTAG, url);
 
             Thread t1 = new Thread(() -> load_slots(url, finalI));
             t1.start();
@@ -108,7 +104,7 @@ public class FutureBroadcast extends BroadcastReceiver {
         // Instantiate the RequestQueue.
         queue = Volley.newRequestQueue(context_global);
 
-        System.out.println("Started for " + ii);
+        Log.d(logTAG, "Started for " + ii);
 
         // Request a string response from the provided URL.
 
@@ -163,7 +159,7 @@ public class FutureBroadcast extends BroadcastReceiver {
 
         if(json_number > 0) {
             notificationManager.notify(200, builder.build());
-            System.out.println(json_number);
+            Log.d(logTAG, "Fetched: " + json_number);
         }
 
         queue = null;
