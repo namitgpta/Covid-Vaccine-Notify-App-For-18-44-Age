@@ -6,6 +6,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -156,6 +157,11 @@ public class MainActivity extends AppCompatActivity {
     public void showDatePickerDialog(View v) {
         DialogFragment newFragment = new DatePickerFragment();
         newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
+
+    public void external_github_link(View view) {
+        Intent external_link = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/namitgpta/Covid-Vaccine-Notify-App-For-18-44-Age"));
+        startActivity(external_link);
     }
 
     public static class DatePickerFragment extends DialogFragment

@@ -72,7 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
-        android:text="Show Slots for 18+"
+        android:text="Show Slots for 18+ &#38; 45+"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,7 +85,7 @@
         android:paddingStart="30sp"
         android:paddingEnd="30sp"
         android:layout_marginTop="40dp"
-        android:text="Turn on the Alert Reminders, whenever available for 18+ People:"
+        android:text="Turn on the Alert Reminders, whenever Vaccine available for 18+ People: \n(Hourly check)"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -112,6 +112,28 @@
         android:text="(Slots upto next 30 days will be shown)"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/show_slots"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="(Open Source App)\nAll Source Code available here:"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/github_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/github_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:onClick="external_github_link"
+        android:text="github"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
