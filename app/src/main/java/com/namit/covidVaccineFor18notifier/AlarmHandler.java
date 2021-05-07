@@ -20,7 +20,7 @@ public class AlarmHandler {
         if(am != null) {
 
             long triggerAfter = 10*1000; //this will trigger the service after 10 seconds
-            long triggerEvery = 60*1000; //this will repeat it every hour after that
+            long triggerEvery = 60*60*1000; //this will repeat it every hour after that
             am.setRepeating(AlarmManager.RTC_WAKEUP, triggerAfter, triggerEvery, sender);
         }
     }

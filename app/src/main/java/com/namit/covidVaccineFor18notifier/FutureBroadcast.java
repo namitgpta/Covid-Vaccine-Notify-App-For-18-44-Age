@@ -119,7 +119,7 @@ public class FutureBroadcast extends BroadcastReceiver {
 
                         for (int i = 0; i < results_arr.length(); i++) {
                             JSONObject obj = results_arr.getJSONObject(i);
-                            if (obj.getString("min_age_limit").equals("45")) {
+                            if (obj.getString("min_age_limit").equals("18")) {
                                 json_number++;
                             }
 
