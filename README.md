@@ -6,3 +6,7 @@ No need to manually search on Cowin or Aarogya Setu for the availablity of Vacci
 This app will automatically run in background and give you the Notification whenever its available nearby your area.
 
 Only for Android Users
+
+Download the APK file from releases section on Github and manually install on your Android phone.
+
+100% Safe App: All code is open-source.
