@@ -36,9 +36,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="28dp"
         android:text="Enter Date:"
         android:textSize="20sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView" />
 
@@ -46,12 +47,13 @@
         android:id="@+id/pick_date_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="12dp"
+        android:onClick="showDatePickerDialog"
         android:text="Pick Date"
+        android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/pincode"
-        android:onClick="showDatePickerDialog" />
+        app:layout_constraintTop_toBottomOf="@+id/pincode" />
 
     <TextView
         android:id="@+id/selected_date"
@@ -60,6 +62,7 @@
         android:layout_marginStart="132dp"
         android:layout_marginTop="12dp"
         android:text="Selected Date: None"
+        android:visibility="invisible"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pick_date_btn" />
@@ -68,7 +71,7 @@
         android:id="@+id/show_slots"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="36dp"
         android:text="Show Slots for 18+"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"

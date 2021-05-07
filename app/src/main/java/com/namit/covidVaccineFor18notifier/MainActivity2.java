@@ -159,7 +159,7 @@ public class MainActivity2 extends AppCompatActivity {
 
     public void jsonApiFetchErrorToastOnce(){
         if(jsonApiFetchError_count == 0){
-            Toast.makeText(this, "Json API error\nPlease try after some time....", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Json API error\nCowin servers are down\nPlease try after some time....", Toast.LENGTH_LONG).show();
             jsonApiFetchError_count++;
         }
     }

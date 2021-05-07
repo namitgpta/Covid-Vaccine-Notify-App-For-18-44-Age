@@ -1,2 +1,2 @@
-rootProject.name = "Covid Vaccine for 18+ Notifier"
+rootProject.name = "Covid Vaccine Notifier (18-44 Age)"
 include ':app'
