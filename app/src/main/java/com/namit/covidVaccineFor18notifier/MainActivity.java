@@ -64,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
             switch_alert.setText("OFF");
         }
 
+        starting_check();
+
         switch_alert.setOnClickListener(v -> {
             SharedPreferences.Editor editor = getSharedPreferences("com.namit.vaccine18notifier", MODE_PRIVATE)
                     .edit();
@@ -183,4 +185,27 @@ public class MainActivity extends AppCompatActivity {
 //            _year = year;
         }
     }
+
+    public void starting_check(){
+        _pincode = pincode.getText().toString().trim();
+        if(_pincode.equals("")){
+            switch_alert.setChecked(false);
+            //Toast.makeText(MainActivity.this, "Please Enter Pincode", Toast.LENGTH_SHORT).show();
+        }else if(switch_alert.isChecked()){
+            //Toast.makeText(MainActivity.this, _pincode, Toast.LENGTH_SHORT).show();
+
+            //switch_alert.setText("ON");
+
+            AlarmHandler alarmHandler = new AlarmHandler(this);
+            //cancel the previous scheduled alarms
+            alarmHandler.cancelAlarmManager();
+            //set the new alarm after 10 seconds
+            alarmHandler.setAlarmManager();
+
+
+
+            //Toast.makeText(this, "Alerts Enabled!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }

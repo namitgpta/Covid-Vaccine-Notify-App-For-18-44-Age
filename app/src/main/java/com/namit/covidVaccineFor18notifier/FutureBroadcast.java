@@ -52,8 +52,8 @@ public class FutureBroadcast extends BroadcastReceiver {
 
         builder = new NotificationCompat.Builder(context, "notifyVaccine")
                 .setSmallIcon(R.drawable.ic_launcher_foreground)
-                .setContentTitle("Reminder by Vaccine for 18+")
-                .setContentText("Hello Vaccine for 18+ Available Now\nPlease Check the App")
+                .setContentTitle("Reminder - Vaccine for 18+ Available")
+                .setContentText("Hello, Vaccine for 18+ Available Now. Please Check the App")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setContentIntent(pendingIntent);
 
