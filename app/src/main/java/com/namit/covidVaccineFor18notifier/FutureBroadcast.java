@@ -4,6 +4,7 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
@@ -24,12 +25,13 @@ import java.util.Locale;
 
 public class FutureBroadcast extends BroadcastReceiver {
 
-    public int days_to_fetch = 30;
+    public int days_to_fetch = 15;
     public int days_fetched = 0;
+    private String pincode_here;
 
     private Context context_global;
 
-    private boolean while_loop = true;
+    //private boolean while_loop = true;
 
     public NotificationManagerCompat notificationManager;
     public NotificationCompat.Builder builder;
@@ -42,8 +44,11 @@ public class FutureBroadcast extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         //this will be executed at selected interval
         context_global = context;
-        while_loop = true;
+        //while_loop = true;
         json_number = 0;
+
+        SharedPreferences prefs = context.getSharedPreferences("com.namit.vaccine18notifier", Context.MODE_PRIVATE);
+        pincode_here = prefs.getString("stored_pincode", "");
 
         //Toast.makeText(context, "Awesome!", Toast.LENGTH_SHORT).show();
 
@@ -63,6 +68,8 @@ public class FutureBroadcast extends BroadcastReceiver {
 //        while (while_loop){
 //
 //        }
+
+        //notificationManager.notify(200, builder.build());
     }
 
     public void availableFor_18_OrNot(){
@@ -76,10 +83,13 @@ public class FutureBroadcast extends BroadcastReceiver {
             String[] date_arr = format.format(dt).split("/");
 
             String url = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode="
-                    + MainActivity._pincode + "&date=" + date_arr[0] + "-" +
+                    + pincode_here + "&date=" + date_arr[0] + "-" +
                     date_arr[1] + "-" + date_arr[2];
 
             int finalI = i;
+
+            System.out.println(url);
+
             Thread t1 = new Thread(() -> load_slots(url, finalI));
             t1.start();
             try {
@@ -113,7 +123,7 @@ public class FutureBroadcast extends BroadcastReceiver {
 
                         for (int i = 0; i < results_arr.length(); i++) {
                             JSONObject obj = results_arr.getJSONObject(i);
-                            if (obj.getString("min_age_limit").equals("18")) {
+                            if (obj.getString("min_age_limit").equals("45")) {
                                 json_number++;
                             }
 
@@ -128,9 +138,7 @@ public class FutureBroadcast extends BroadcastReceiver {
                         Log.d("json error", "json api error");
                         e.printStackTrace();
                     }
-                }, error -> {
-            VolleyLog.d("json connect fail", "json api fail");
-        });
+                }, error -> VolleyLog.d("json connect fail", "json api fail"));
         // Add the request to the RequestQueue.
         queue.add(jsonObjectRequest);
 
@@ -160,10 +168,10 @@ public class FutureBroadcast extends BroadcastReceiver {
 
         queue = null;
 
-        while_loop = false;
+        //while_loop = false;
 
-//        notificationManager = null;
-//        builder = null;
+        notificationManager = null;
+        builder = null;
     }
 
 }
