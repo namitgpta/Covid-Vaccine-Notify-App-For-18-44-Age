@@ -96,7 +96,7 @@
         android:id="@+id/switch_alert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="2dp"
         android:text="OFF"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -124,13 +124,14 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/github_btn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/github_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="25dp"
         android:onClick="external_github_link"
         android:text="github"
         app:layout_constraintBottom_toBottomOf="parent"
