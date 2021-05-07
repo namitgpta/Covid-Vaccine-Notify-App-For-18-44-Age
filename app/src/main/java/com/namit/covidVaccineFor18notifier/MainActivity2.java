@@ -104,7 +104,7 @@ public class MainActivity2 extends AppCompatActivity {
 
                         for (int i = 0; i < results_arr.length(); i++) {
                             JSONObject obj = results_arr.getJSONObject(i);
-                            if (obj.getString("min_age_limit").equals("18")) {
+                            if (obj.getString("min_age_limit").equals("45")) {
                                 json_arr_18.put(obj);
                             }
 
